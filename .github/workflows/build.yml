@@ -8,8 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: unzip -q ./*.zip -d src
-      - run: sed -i 's/security-crypto:1.0.0/security-crypto:1.1.0-alpha06/' src/app/build.gradle.kts
+      - run: unzip -q "$(ls *.zip | LC_ALL=C sort | tail -1)" -d src
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
