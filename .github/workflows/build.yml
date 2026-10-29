@@ -9,6 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: unzip -q ./*.zip -d src
+      - run: sed -i 's/security-crypto:1.0.0/security-crypto:1.1.0-alpha06/' src/app/build.gradle.kts
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
